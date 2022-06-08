@@ -17,7 +17,6 @@ public class Principal {
 		
 		List<Animal> animal = new ArrayList<>();
 		String opcao;
-		int opcaoInt = 0;
 			
 		do {
 			
@@ -27,40 +26,34 @@ public class Principal {
 					+ "\n3 - Coelho"
 					+ "\n4 - Rato"
 					+ "\n5 - Exibir cadastro e sair");
-			
-			if (opcao.equals("1") || opcao.equals("2") || opcao.equals("3") || opcao.equals("4") || opcao.equals("5")) {
 				
-				opcaoInt = Integer.parseInt(opcao);
-				
-				switch (opcaoInt) {
-				case 1:
+				switch (opcao) {
+				case "1":
 					Cachorro cachorro = new Cachorro();
 					animal.add(cachorro);
 					break;
-				case 2:
+				case "2":
 					Gato gato = new Gato();
 					animal.add(gato);
 					break;
-				case 3:
+				case "3":
 					Coelho coelho = new Coelho();
 					animal.add(coelho);
 					break;
-				case 4:
+				case "4":
 					Rato rato = new Rato();
 					animal.add(rato);
 					break;
-		
+				case "5":
+					break;
+				default:
+					JOptionPane.showMessageDialog(null, "Opção incorreta!"
+							+ "\nEscolha de 1 a 4 para cadastrar"
+							+ "\nou 5 para sair.");
+					break;
 				}
-			}
-			else {
-				
-				JOptionPane.showMessageDialog(null, "Opção incorreta!"
-						+ "\nEscolha de 1 a 4 para cadastrar"
-						+ "\nou 5 para sair.");
-				
-			}
 			
-		}while(opcaoInt != 5);
+		}while(!opcao.equals("5"));
 		
 		String exibir = "Cadastro de animais:\n\n";
 		for (Animal a : animal) {
@@ -70,5 +63,4 @@ public class Principal {
 		JOptionPane.showMessageDialog(null, exibir);
 
 	}
-
 }
