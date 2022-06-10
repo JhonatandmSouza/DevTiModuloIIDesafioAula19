@@ -45,6 +45,11 @@ public class Principal {
 					animal.add(rato);
 					break;
 				case "5":
+					String exibir = "Cadastro de animais:\n\n";
+					for (Animal a : animal) {
+						exibir += a.exibirAlimento();
+					}
+					JOptionPane.showMessageDialog(null, exibir);
 					break;
 				default:
 					JOptionPane.showMessageDialog(null, "Opção incorreta!"
@@ -54,13 +59,5 @@ public class Principal {
 				}
 			
 		}while(!opcao.equals("5"));
-		
-		String exibir = "Cadastro de animais:\n\n";
-		for (Animal a : animal) {
-			exibir += a.exibirAlimento();
-		}
-		
-		JOptionPane.showMessageDialog(null, exibir);
-
 	}
 }
